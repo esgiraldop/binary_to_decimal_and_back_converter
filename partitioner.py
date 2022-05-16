@@ -1,12 +1,25 @@
 import decimal
 
-def decimal_partitioner(dec_num):
-    int_part = int(dec_num)
-    dec_part = None
-    # Checking the input number has a float part. The first part of the conditional seem obvious,
-    # but it is used because using dec_num.is_integer() produces an exception if "dec_num" is an integer
-    if type(dec_num) != int and dec_num.is_integer() == False:
-        # Separate "decimal" part. Here I had to use decimal because an imprecision computing float numbers
-        dec_part = float(decimal.Decimal(str(dec_num)) - decimal.Decimal(str(int_part)))
+def float_partitioner(dec_num):
+    dec_num = str(dec_num)
+    int_part = dec_num.split('.')[0]
+    try:
+        # Checking the input number has a float part
+        dec_part = dec_num.split('.')[1]
+    except:
+        # The user entered an integer number. '125' For example
+        return decimal.Decimal(int_part), None
+    else:
+        decimal.getcontext().prec = len(dec_part)
+        if dec_part == '0':
+            # In case user entered '125.0' for example, which is still an integer represented as a float
+            return decimal.Decimal(int_part), None
 
-    return int_part, dec_part
+        # User entered a float number, and decimal part is different than '0'
+        return decimal.Decimal(int_part), decimal.Decimal('0.'+dec_part)
+
+if __name__ == '__main__':
+    dec_num = 22.246
+    int_part, dec_part = float_partitioner(dec_num)
+    print('int_part: ', int_part)
+    print('dec_part: ', dec_part)

@@ -7,7 +7,7 @@ def validate_binary(frst_usr_ans, scnd_usr_ans):
             :param
                 frst_usr_ans: Float number with the number the user entered
                 scnd_usr_ans: String with two possible answers (b/d) representing the type of numnbered
-                            entered by the user. 'b' for binary, 'd' for decimal.
+                            entered by the user. '1' for binary, '2' for decimal.
             :return:
                 Boolean variable.
                     False value allows to end the outer while loop in parent function check_input() and
@@ -20,14 +20,14 @@ def validate_binary(frst_usr_ans, scnd_usr_ans):
                     True value represents the number is not a binary number and then it is needed to ask to the user for
                         another number
         '''
-    if scnd_usr_ans == 'b':
+    if scnd_usr_ans == '1':
         for i in range(2,10):
-            print(f'{i} in decimal number: {str(i) in str(frst_usr_ans)}')
+            # print(f'{i} in decimal number: {str(i) in str(frst_usr_ans)}')
             if str(i) in str(frst_usr_ans):
                 print('This is not actually a binary number, but a decimal number.\nPlease choice an option')
                 ans = '0'
                 while ans not in ['1', '2']:
-                    ans = input('1.Enter another number\n2.Use the number as decimal:')
+                    ans = input('1. Enter another number\n2. Use the number as decimal:')
                     if ans not in ['1', '2']:
                         print('Please enter a valid answer')
 
@@ -45,8 +45,8 @@ def check_input():
         The function also checks if correct values are entered by the user.
         :return:
         frst_usr_ans: Float number with the number the user entered
-        scnd_usr_ans: String with two possible answers (b/d) representing the type of numnbered
-                        entered by the user. 'b' for binary, 'd' for decimal.
+        scnd_usr_ans: String with two possible answers (1/2) representing the type of number
+                        entered by the user. '1' for binary, '2' for decimal.
     '''
     ans = True
     while ans:
@@ -57,10 +57,11 @@ def check_input():
             print('Please input a valid number')
         else:
 
-            scnd_usr_ans = 'a'
-            while scnd_usr_ans not in ['b', 'd']:
-                scnd_usr_ans = input('Is it a binary (b) or decimal number (d)? (b/d): ')
-                if scnd_usr_ans not in ['b', 'd']:
+            scnd_usr_ans = '0'
+            while scnd_usr_ans not in ['1', '2']:
+                print('Please choice and option to transform: ')
+                scnd_usr_ans = input('1. From binary to decimal\n2. From decimal to binary: ')
+                if scnd_usr_ans not in ['1', '2']:
                     print('Please input a valid answer')
 
             ans = validate_binary(frst_usr_ans, scnd_usr_ans)
