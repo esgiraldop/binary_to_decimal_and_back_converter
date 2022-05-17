@@ -1,6 +1,13 @@
 import decimal
 
 def integer_2_binary(int_part):
+    '''
+        Function for trasforming an integer decimal number into a binary number
+        :param
+            int_part: Integer number in decimal.Decimal format.
+        :return:
+            int_bin: Binary number in integer format.
+    '''
     if int_part == 0:
         return 0
     quotient = int_part
@@ -14,18 +21,25 @@ def integer_2_binary(int_part):
         # print('\n')
 
     int_bin.reverse()
-    # print(int_bin)
-    return int(''.join(int_bin))
+    int_bin = int(''.join(int_bin))
+    return int_bin
 
 
-def decimal_2_binary(dec_part):
-    if dec_part == '':
+def decimal_2_binary(float_part):
+    '''
+        Function for trasforming the float part of decimal number into a float binary number
+        :param
+            float_part: Float decimal in decimal.Decimal format.
+        :return:
+            dec_bin: Float binary number in decimal.Decimal format.
+    '''
+    if float_part == '':
         return ''
 
-    mult_reslt = dec_part
+    mult_reslt = float_part
     dec_bin = list()
     count = 0
-    decimal.getcontext().prec = len(str(dec_part)[2:]) + 1
+    decimal.getcontext().prec = len(str(float_part)[2:]) + 1
     dec_bin.append('.')
     while True:
         # print('count: ', count)

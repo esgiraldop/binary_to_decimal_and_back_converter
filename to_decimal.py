@@ -1,4 +1,11 @@
 def binary_2_integer(int_part):
+    '''
+        Function for trasforming an integer decimal number into a binary number
+        :param
+            int_part: Integer number in decimal.Decimal format.
+        :return:
+            int_bin: Binary number in integer format.
+    '''
     int_part = list(str(int_part))
     int_part.reverse()
     sum = 0
@@ -11,7 +18,13 @@ def binary_2_integer(int_part):
     return sum
 
 def binary_2_float(float_part):
-
+    '''
+        Function for trasforming the float part of a binary number into a float decimal number
+        :param
+            float_part: Float binary number in decimal.Decimal format.
+        :return:
+            sum: Float decimal number in decimal.Decimal format.
+    '''
     float_part = list(str(float_part)[2:]) # From position 2 onwards to ignore the '0.'
     sum = 0
     expo = -1
