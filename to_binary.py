@@ -1,6 +1,8 @@
 import decimal
 
 def integer_2_binary(int_part):
+    if int_part == 0:
+        return 0
     quotient = int_part
     int_bin = list()
     while quotient / 2 >= 0.5:

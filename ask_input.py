@@ -56,7 +56,6 @@ def check_input():
         except:
             print('Please input a valid number')
         else:
-
             scnd_usr_ans = '0'
             while scnd_usr_ans not in ['1', '2']:
                 print('Please choice and option to transform: ')

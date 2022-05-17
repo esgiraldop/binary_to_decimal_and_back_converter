@@ -1,5 +1,8 @@
 import decimal
 
+# def negative_sign_partitioner():
+
+
 def float_partitioner(dec_num):
     dec_num = str(dec_num)
     int_part = dec_num.split('.')[0]
