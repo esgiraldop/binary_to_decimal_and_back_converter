@@ -19,8 +19,8 @@ def integer_2_binary(int_part):
 
 
 def decimal_2_binary(dec_part):
-    if dec_part is None:
-        return None
+    if dec_part == '':
+        return ''
 
     mult_reslt = dec_part
     dec_bin = list()
@@ -42,8 +42,6 @@ def decimal_2_binary(dec_part):
         # print('\n')
         if count > 18:
             break
-    # pdb.set_trace()
-    # print(dec_bin)
     dec_bin = decimal.Decimal(''.join(dec_bin))
 
     # It makes no sense to return a decimal binary number whose last number is zero
