@@ -50,7 +50,12 @@ def check_input():
     '''
     ans = True
     while ans:
-        frst_usr_ans = input('Please input an integer or float number: ')
+        frst_usr_ans = input('Please input an integer or float number: ').lower()
+        ans_2 = any([frst_usr_ans == 'nan', frst_usr_ans == '-nan', frst_usr_ans == 'inf', frst_usr_ans == '-inf'])
+        if ans_2:
+            print('Please input a valid number')
+            continue
+
         try:
             frst_usr_ans = decimal.Decimal(frst_usr_ans)
         except:
